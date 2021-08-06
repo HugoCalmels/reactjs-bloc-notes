@@ -10,8 +10,7 @@ const Sidebar = ({
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
-        <h1>Notes</h1>
-        <button onClick={onAddNote}>Add</button>
+        <button id="add-button" type="button" class="btn btn-danger btn-lg" onClick={onAddNote}>Ajouter une note</button>
       </div>
       <div className="app-sidebar-notes">
         {sortedNotes.map(({ id, title, body, lastModified }, i) => (
@@ -21,7 +20,7 @@ const Sidebar = ({
           >
             <div className="sidebar-note-title">
               <strong>{title}</strong>
-              <button onClick={(e) => onDeleteNote(id)}>Delete</button>
+              <button  class="btn btn-warning btn-sm" onClick={(e) => onDeleteNote(id)}>Supprimer</button>
             </div>
 
             <p>{body && body.substr(0, 100) + "..."}</p>

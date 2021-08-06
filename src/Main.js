@@ -9,10 +9,18 @@ const Main = ({ activeNote, onUpdateNote }) => {
     });
   };
 
-  if (!activeNote) return <div className="no-active-note">No Active Note</div>;
+  if (!activeNote) return <div className="no-active-note">Aucune Note sélectionnée</div>;
 
   return (
     <div className="app-main">
+
+      <div className="app-main-note-preview">
+        <h1 className="preview-title">{activeNote.title}</h1>
+        <ReactMarkdown className="markdown-preview">
+          {activeNote.body}
+        </ReactMarkdown>
+      </div>
+
       <div className="app-main-note-edit">
         <input
           type="text"
@@ -29,12 +37,7 @@ const Main = ({ activeNote, onUpdateNote }) => {
           onChange={(e) => onEditField("body", e.target.value)}
         />
       </div>
-      <div className="app-main-note-preview">
-        <h1 className="preview-title">{activeNote.title}</h1>
-        <ReactMarkdown className="markdown-preview">
-          {activeNote.body}
-        </ReactMarkdown>
-      </div>
+      
     </div>
   );
 };
